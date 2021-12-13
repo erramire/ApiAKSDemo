@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: webapitest
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: webapitest
+  template:
+    metadata:
+      labels:
+        app: webapitest    
+    spec:          
+      containers:
+      - name: webapitest
+        image: opebasedemo.azurecr.io/apiaksdemo:latest
+        resources:
+          limits:
+            memory: "128Mi"
+            cpu: "500m"
+        ports:
+        - containerPort: 80        
+        env:
+        - name: CONSTRING_APPINSIGHTS
+          value: "InstrumentationKey=2bc41059-16b2-4318-aa9e-6ed17a4362f4;IngestionEndpoint=https://southcentralus-0.in.applicationinsights.azure.com/" 

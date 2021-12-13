@@ -1,0 +1,31 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+    <UserSecretsId>96ca6190-0793-41d8-a0aa-dfa208e2b862</UserSecretsId>
+    <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
+    <ApplicationInsightsResourceId>/subscriptions/3918e4e2-4e04-48ca-adba-f54b7f849786/resourceGroups/rg_ope_base_dev/providers/microsoft.insights/components/apidemoaksdemo</ApplicationInsightsResourceId>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Docker\**" />
+    <Content Remove="Docker\**" />
+    <EmbeddedResource Remove="Docker\**" />
+    <None Remove="Docker\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="Dockerfilev1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.ApplicationInsights.AspNetCore" Version="2.15.0" />
+    <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.14.0" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="5.6.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="helm\" />
+  </ItemGroup>
+
+</Project>
