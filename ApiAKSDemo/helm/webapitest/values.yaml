@@ -8,7 +8,7 @@ image:
   repository: opebasedemo.azurecr.io/apiaksdemo
   pullPolicy: IfNotPresent
   # Overrides the image tag whose default is the chart appVersion.
-  tag: "latest"
+  tag: "541"
 
 imagePullSecrets: []
 nameOverride: ""
@@ -37,7 +37,7 @@ securityContext: {}
   # runAsUser: 1000
 
 service:
-  type: LoadBalancer
+  type: ClusterIP
   port: 80
 
 ingress:
@@ -59,10 +59,10 @@ resources:
   # resources, such as Minikube. If you do want to specify resources, uncomment the following
   # lines, adjust them as necessary, and remove the curly braces after 'resources:'.
   limits:
-    cpu: 100m
-    memory: 128Mi
+    cpu: 400m
+    memory: 256Mi
   requests:
-    cpu: 100m
+    cpu: 200m
     memory: 128Mi
 
 
@@ -71,7 +71,7 @@ autoscaling:
   minReplicas: 3
   maxReplicas: 9
   targetCPUUtilizationPercentage: 80
-  # targetMemoryUtilizationPercentage: 80
+  targetMemoryUtilizationPercentage: 80
 
 nodeSelector: {}
 

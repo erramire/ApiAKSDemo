@@ -27,7 +27,7 @@ spec:
           ports:
             - name: http
               containerPort: 80
-              protocol: TCP
+              protocol: TCP  
           livenessProbe:
             httpGet:
               path: /health/live
@@ -35,6 +35,6 @@ spec:
           readinessProbe:
             httpGet:
               path: /health/ready
-              port: http
+              port: http        
           resources:
             {{- toYaml .Values.resources | nindent 12 }}            

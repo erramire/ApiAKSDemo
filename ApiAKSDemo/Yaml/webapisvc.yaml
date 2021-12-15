@@ -3,7 +3,7 @@ kind: Service
 metadata:
   name: webapitest-svc
 spec:
-  type: ClusterIP
+  type: LoadBalancer
   selector:
     app: webapitest
   ports:
