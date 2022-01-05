@@ -1,0 +1,17 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: {{ include "webapitest.fullname" . }}
+  annotations:
+    kubernetes.io/ingress.class: azure/application-gateway
+spec:
+  rules:
+  - http:
+      paths:
+      - path: /api
+        backend:
+          service:
+            name: {{ include "webapitest.fullname" . }}
+            port:
+              number: 80
+        pathType: Exact
